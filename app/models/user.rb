@@ -1,15 +1,10 @@
-class User < ApplicationRecord
-    has_secure_password
-    has_one_attached :avatar
-    has_many :rentals, dependent: :destroy
+class User < ActionController::API
+    extend Devise::Models
+    # has_secure_password
+
+    # has_many :orders
+    # has_many :products, through: :orders
+    # validates :first_name, :last_name, :email, :password, presence: true
+    # validates :email, uniqueness: true
+    # validates :password, length: {minimum: 6}
 end
-
-User.connetction.avatar.attach io: File.open('app/assets/images/placeholder.png'), filename: 'placeholder.png', content_type: 'image/png', identify: false
-
-user.avatar.attached? # => true
-
-user.avatar.purge_later # => true
-
-user.avatar.attached? # => false
-
-url_for(user.avatar)

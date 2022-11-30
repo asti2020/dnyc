@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :models
   resources :rentals
   resources :avatars, only: [:index, :update]
 
