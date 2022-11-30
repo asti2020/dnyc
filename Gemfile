@@ -30,4 +30,6 @@ end
 gem 'active_model_serializers'
 gem 'rack-cors'
 gem 'jwt'
+gem "image_processing", ">= 1.2"
+gem 'active_storage_validations'
 

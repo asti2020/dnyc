@@ -29,6 +29,11 @@ class RentalsController < ApplicationController
         end
     end
 
+    def show
+        rental = Rental.find_by(id: params[:id])
+        render json: rental, status: :ok
+    end
+
 private
 
     def rental_params

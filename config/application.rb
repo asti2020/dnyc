@@ -13,6 +13,17 @@ require "action_controller/railtie"
 require "action_view/railtie"
 # require "action_cable/engine"
 require "rails/test_unit/railtie"
+# require "active_storage"
+require "active_storage/engine"
+ require "active_storage/attached"
+#  require "active_storage/attached/macros"
+ require "active_storage/attached/model"
+ require "active_storage/attached/one"
+# require "active_storage/attached/many"
+ require "active_storage/attached/changes/create_one"
+# require "active_storage/attached/changes/create_many"
+#  require "active_storage/attached/changes/update_one"
+# require "active_storage/attached/changes/update_many"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

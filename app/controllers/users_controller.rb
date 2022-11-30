@@ -14,9 +14,12 @@ class UsersController < ApplicationController
     def me
         render json: current_user, status: :ok
     end
+
     
 
 private
+
+
     def user_params_signup
         params.permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
