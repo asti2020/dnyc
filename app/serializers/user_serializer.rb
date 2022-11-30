@@ -19,5 +19,5 @@ class UserSerializer < ActiveModel::Serializer
   #       url: rails_blob_url(object.avatar)
   #     }
   #   end
-  # end
+  end
 
