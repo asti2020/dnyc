@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :bookings
+  resources :meetings
   resources :appointments
   resources :rentals
   resources :avatars, only: [:index, :update]
