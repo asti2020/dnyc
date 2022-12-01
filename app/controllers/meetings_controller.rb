@@ -1,4 +1,6 @@
 class MeetingsController < ApplicationController
+    skip_before_action :authorized, only: [:create, :update, :destroy]
+
     def index
         meetings = Meeting.all
         render json: meetings, status: :ok
@@ -28,7 +30,7 @@ class MeetingsController < ApplicationController
 
     def destroy
         meeting = Meeting.find_by(id: params[:id])
-        if meeting.user_id == current_user.id
+        if meeting.user_ids == current_user.id
             meeting.destroy
             render json: meeting, status: :ok
         end

@@ -31,5 +31,12 @@ class ApplicationController < ActionController::API
             render json: {message: 'Please log in'}, status: :unauthorized
         end
     end
+      
+    # def current_booking
+    #     if decoded_token
+    #         booking_id = decoded_token[0]["booking_id"]
+    #         @booking = Booking.find_by(id: booking_id)
+    #     end
+    # end
 
 end

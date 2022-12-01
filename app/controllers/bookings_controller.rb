@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-
+    before_action:authorized, only: [:create, :update, :destroy]
     def index
         bookings = Booking.all
         render json: bookings, status: :ok
@@ -13,17 +13,26 @@ class BookingsController < ApplicationController
     def create
         if current_user
             booking = Booking.create(booking_params)
+            booking.user_id = current_user.id 
+            booking.isBooked = true
+            booking.save
             render json: booking, status: :created
-        else 
+        else
             render json: {message: "Please log in"}, status: :unauthorized
         end
+
+        #     booking = Booking.create(booking_params)
+        #     render json: booking, status: :created
+        # else 
+        #     render json: {message: "Please log in"}, status: :unauthorized
+        # end
     end
 
 
 private
 
     def booking_params
-        params.permit(:user_id, :meeting_id, :date, :time, :location, :duration, :notes)
+        params.permit(:user_id, :meeting_id, :date, :time, :email, :message).merge(user_id: current_user.id).merge(meeting_id: params[:meeting_id]).merge(isBooked: true).merge(rental_id: params[:rental_id])
     end
-    end
+
 end

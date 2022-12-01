@@ -1,6 +1,6 @@
 class BookingSerializer < ActiveModel::Serializer
   attributes :id, :name, :date, :time, :email, :message, :isBooked
-  has_one :meeting
-  has_one :user
-  has_one :rental
+  belongs_to :meeting
+  belongs_to :user
+  belongs_to :rental
 end
