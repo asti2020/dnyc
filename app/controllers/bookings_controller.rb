@@ -1,8 +1,10 @@
 class BookingsController < ApplicationController
     before_action:authorized, only: [:create, :update, :destroy]
     def index
-        bookings = Booking.all
-        render json: bookings, status: :ok
+            user = current_user
+            bookings = Booking.all
+            bookings = user.bookings
+            render json: bookings, status: :ok
     end
 
     def show 
