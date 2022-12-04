@@ -39,4 +39,11 @@ class ApplicationController < ActionController::API
     #     end
     # end
 
+    def address
+        [latitude, longitude]
+    end
+
+
+
+
 end

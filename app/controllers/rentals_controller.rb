@@ -6,8 +6,15 @@ class RentalsController < ApplicationController
         render json: rentals, status: :ok
     end
     def create
+        
         if current_user
+                address = params[:address]
+                geocoder = Geocoder.search(address)
+                lat = geocoder.first.coordinates[0]
+                lng = geocoder.first.coordinates[1]
+                debugging = {lat: lat, lng: lng}
             rental = Rental.create(rental_params)
+
             render json: rental, status: :created
         end
     end
@@ -20,7 +27,6 @@ class RentalsController < ApplicationController
             render json: rental, status: :ok
         end
     end
-
     def update
         rental = Rental.find_by(id: params[:id])
         if rental.user_id == current_user.id
@@ -34,10 +40,11 @@ class RentalsController < ApplicationController
         render json: rental, status: :ok
     end
 
+
 private
 
     def rental_params
-        params.permit(:title, :price, :address, :area_sqft, :category, :starting_date, :image, :requirements, :user_id, :note, :status, :parking, :near_subway, :features, :location, :phone, :email, :utility, :description).merge(user_id: current_user.id)
+        params.permit(:title, :price, :address, :area_sqft, :category, :starting_date, :image, :requirements, :user_id, :note, :status, :parking, :near_subway, :features, :location, :phone, :email, :utility, :description, :latitude, :longitude).merge(user_id: current_user.id)
     end
     def rental_params_update
         params.permit(:title, :price, :address, :area_sqft, :category, :starting_date, :image, :requirements, :note, :status, :parking, :near_subway, :features, :location, :phone, :email, :utility, :description)
