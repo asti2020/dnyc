@@ -39,4 +39,5 @@ gem 'jwt'
 gem "image_processing", ">= 1.2"
 gem 'active_storage_validations'
 gem "simple_calendar", "~> 2.4"
+gem 'geocoder'
 

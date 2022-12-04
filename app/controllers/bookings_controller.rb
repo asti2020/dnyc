@@ -34,7 +34,7 @@ class BookingsController < ApplicationController
 private
 
     def booking_params
-        params.permit(:user_id, :meeting_id, :date, :time, :email, :message).merge(user_id: current_user.id).merge(meeting_id: params[:meeting_id]).merge(isBooked: true).merge(rental_id: params[:rental_id])
+        params.permit(:user_id, :meeting_id, :date, :time, :email, :message).merge(user_id: current_user.id).merge(isBooked: true).merge(rental_id: params[:rental_id])
     end
 
 end

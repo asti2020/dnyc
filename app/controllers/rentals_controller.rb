@@ -40,7 +40,7 @@ private
         params.permit(:title, :price, :address, :area_sqft, :category, :starting_date, :image, :requirements, :user_id, :note, :status, :parking, :near_subway, :features, :location, :phone, :email, :utility, :description).merge(user_id: current_user.id)
     end
     def rental_params_update
-        params.permit(:title, :price, :address, :area_sqft, :category, :starting_date, :image, :requirements, :note, :status, :parking, :near_subway, :features, :location, :phone, :email, :utility, :description).merge(user_id: current_user.id)
+        params.permit(:title, :price, :address, :area_sqft, :category, :starting_date, :image, :requirements, :note, :status, :parking, :near_subway, :features, :location, :phone, :email, :utility, :description)
     end
 
 end

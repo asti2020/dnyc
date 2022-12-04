@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_30_195452) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_03_213929) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,6 +69,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_195452) do
     t.boolean "isBooked"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "startDate"
+    t.datetime "endDate"
     t.index ["meeting_id"], name: "index_bookings_on_meeting_id"
     t.index ["rental_id"], name: "index_bookings_on_rental_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
@@ -119,6 +121,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_195452) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "longitude"
+    t.float "latitude"
     t.index ["user_id"], name: "index_rentals_on_user_id"
   end
 
