@@ -1,0 +1,2 @@
+class SaveRentalsController < ApplicationController
+end

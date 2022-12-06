@@ -2,6 +2,7 @@ class Rental < ApplicationRecord
   extend Geocoder::Model::ActiveRecord
   belongs_to :user
   has_many :appointments
+  has_many :save_rentals
 
   geocoded_by :address
   after_validation :geocode
