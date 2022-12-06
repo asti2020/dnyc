@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
 
     def create
         if current_user
+            rental = Rental.find_by(id: params[:rental_id])
             booking = Booking.create(booking_params)
             booking.user_id = current_user.id 
             booking.isBooked = true
