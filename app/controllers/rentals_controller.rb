@@ -1,10 +1,19 @@
 class RentalsController < ApplicationController
     skip_before_action :authorized, only: [:index, :show]
-    before_action :authorized, only: [:create, :update ,:destroy]
+    before_action :authorized, only: [:create, :update ,:destroy, :rentalsuser]
+
+
     def index
         rentals = Rental.all
         render json: rentals, status: :ok
     end
+
+    def rentalsuser
+        user = current_user
+        rentals  = Rental.all
+        render json: user.rentals, status: :ok
+    end
+
     def create
         
         if current_user
