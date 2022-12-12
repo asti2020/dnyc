@@ -6,6 +6,7 @@ class Rental < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode
+  
 
   def geocoded_by
     self.address = geocoded_by(:address)
